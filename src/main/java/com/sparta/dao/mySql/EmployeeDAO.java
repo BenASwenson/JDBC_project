@@ -56,4 +56,11 @@ public class EmployeeDAO implements DAO<Employee> {
         }
         return list;
     }
+
+    @Override
+    public void close() throws Exception {
+        if(conn != null) {
+            conn.close();
+        }
+    }
 }

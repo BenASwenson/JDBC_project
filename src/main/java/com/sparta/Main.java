@@ -10,6 +10,11 @@ public class Main {
 
         EmployeeDAO employeeDAO = EmployeeDAO.getInstance();
         List<Employee> all = employeeDAO.findAll();
+        try {
+            EmployeeDAO.getInstance().close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         int counter = 0;
         for (Employee e: all) {
             System.out.println(e);
