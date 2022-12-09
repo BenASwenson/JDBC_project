@@ -1,14 +1,35 @@
 package com.sparta.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
 import java.time.LocalDate;
 
 public class Employee {
     private int employeeNumber;
+    
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    
     private LocalDate dob;
+    
     private String firstName;
+    
     private String lastName;
+    
     private String gender;
+
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate hireDate;
+
+    public Employee(){
+    }
 
     public Employee(int employeeNumber, LocalDate dob, String firstName, String lastName, String gender, LocalDate hireDate) {
         this.employeeNumber = employeeNumber;
