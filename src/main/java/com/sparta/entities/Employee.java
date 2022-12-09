@@ -3,12 +3,16 @@ package com.sparta.entities;
 import java.time.LocalDate;
 
 public class Employee {
+
     private int employeeNumber;
     private LocalDate dob;
     private String firstName;
     private String lastName;
     private String gender;
     private LocalDate hireDate;
+
+    public Employee(){
+    }
 
     public Employee(int employeeNumber, LocalDate dob, String firstName, String lastName, String gender, LocalDate hireDate) {
         this.employeeNumber = employeeNumber;
