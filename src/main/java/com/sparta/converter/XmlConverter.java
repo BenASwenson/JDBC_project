@@ -1,11 +1,10 @@
-package com.sparta.conveter;
+package com.sparta.converter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.sparta.entities.Employee;
 
-public class EmployeeConverter {
+public class XmlConverter {
 
     public String ObjectToXML(Employee employee) {
         XmlMapper mapper = new XmlMapper();
