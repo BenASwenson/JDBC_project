@@ -1,14 +1,10 @@
 package com.sparta;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sparta.Model.XmlWriter;
-import com.sparta.converter.XmlConverter;
-import com.sparta.dao.mySql.EmployeeDAO;
+import com.sparta.dao.mysql.EmployeeDAO;
 import com.sparta.entities.Employee;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
@@ -19,11 +15,13 @@ public class Main {
 
 
         EmployeeDAO employeeDAO = EmployeeDAO.getInstance();
-
-//        List<Employee> list2 = employeeDAO.findEmployeesByDeptAndDate("Development", LocalDate.of(2005,5, 5));
-//        for (Employee e: list2){
-//            System.out.println(e);
-//        }
+        int counter2 = 0;
+        List<Employee> list2 = employeeDAO.findEmployeesByDeptAndDate("Development", LocalDate.of(1999,1, 1), LocalDate.of(2000,1,1));
+        for (Employee e: list2){
+            counter2++;
+            System.out.println(e);
+        }
+        System.out.println(counter2);
 
 //        Employee testEmployee = new Employee(1, LocalDate.of(1995,5,5), "test", "employee", "m", LocalDate.of(1995,5,6));
 //        XmlWriter xmlWriter = new XmlWriter();

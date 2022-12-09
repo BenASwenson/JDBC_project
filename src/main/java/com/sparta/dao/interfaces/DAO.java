@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface DAO<T> extends AutoCloseable {
 
-    List<T> findAll();
+//    List<T> findAll();
 }
