@@ -4,13 +4,13 @@ import java.time.LocalDate;
 
 public class Employee {
     private int employeeNumber;
-    private String dob;
+    private LocalDate dob;
     private String firstName;
     private String lastName;
     private String gender;
-    private String hireDate;
+    private LocalDate hireDate;
 
-    public Employee(int employeeNumber, String dob, String firstName, String lastName, String gender, String hireDate) {
+    public Employee(int employeeNumber, LocalDate dob, String firstName, String lastName, String gender, LocalDate hireDate) {
         this.employeeNumber = employeeNumber;
         this.dob = dob;
         this.firstName = firstName;
@@ -27,11 +27,11 @@ public class Employee {
         this.employeeNumber = employeeNumber;
     }
 
-    public String getDob() {
+    public LocalDate getDob() {
         return dob;
     }
 
-    public void setDob(String dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 
@@ -59,11 +59,11 @@ public class Employee {
         this.gender = gender;
     }
 
-    public String getHireDate() {
+    public LocalDate getHireDate() {
         return hireDate;
     }
 
-    public void setHireDate(String hireDate) {
+    public void setHireDate(LocalDate hireDate) {
         this.hireDate = hireDate;
     }
 
