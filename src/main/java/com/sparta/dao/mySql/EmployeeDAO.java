@@ -51,16 +51,36 @@ public class EmployeeDAO implements DAO<Employee> {
     public List<Employee> findAll() {
         List<Employee> list = new ArrayList<>();
         try {
-            ResultSet resultSet = findAllPS.executeQuery();
-            while (resultSet.next()) {
-                list.add(new Employee(resultSet.getInt(1), fromStringToLocalDate(resultSet.getString(2)), resultSet.getString(3),
-                        resultSet.getString(4), resultSet.getString(5), fromStringToLocalDate(resultSet.getString(6))));
+            ResultSet rs = findAllPS.executeQuery();
+            while (rs.next()) {
+                list.add(new Employee(rs.getInt("emp_no"), fromStringToLocalDate(rs.getString("birth_date")),
+                        rs.getString("first_name"), rs.getString("last_name"), rs.getString("gender"),
+                        fromStringToLocalDate(rs.getString("hire_date"))));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return list;
+    }
 
+    public List<Employee> findEmployeesByDeptAndDate(String dept, LocalDate date) {
+        List<Employee> list = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(
+                    "SELECT * FROM employees WHERE hire_date < ? AND ");
+            preparedStatement.setString(1, "Development");
+            preparedStatement.setString(2, "2005-05-05");
+
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                list.add(new Employee(rs.getInt("emp_no"), fromStringToLocalDate(rs.getString("birth_date")),
+                        rs.getString("first_name"), rs.getString("last_name"), rs.getString("gender"),
+                        fromStringToLocalDate(rs.getString("hire_date"))));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
     }
 
     @Override
