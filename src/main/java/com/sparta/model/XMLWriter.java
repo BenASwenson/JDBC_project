@@ -1,11 +1,11 @@
-package com.sparta.Model;
+package com.sparta.model;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.sparta.entities.Employee;
 
 import java.io.*;
 
-public class XmlWriter implements Writer{
+public class XMLWriter implements Writer{
     private static String fileWithPath = "src/main/resources/";
 
     @Override

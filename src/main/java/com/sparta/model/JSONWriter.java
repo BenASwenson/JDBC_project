@@ -1,4 +1,4 @@
-package com.sparta.Model;
+package com.sparta.model;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sparta.entities.Employee;
@@ -7,7 +7,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class JsonWriter implements Writer{
+public class JSONWriter implements Writer{
     private static String fileWithPath = "src/main/resources/";
 
     @Override

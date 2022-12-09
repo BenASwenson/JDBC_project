@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sparta.entities.Employee;
 
-public class JsonConverter {
+public class JSONConverter {
 
     public String objectToJson(Employee employee) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();

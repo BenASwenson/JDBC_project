@@ -28,16 +28,27 @@ public class Employee {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate hireDate;
 
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate fromDate;
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate toDate;
+
     public Employee(){
     }
 
-    public Employee(int employeeNumber, LocalDate dob, String firstName, String lastName, String gender, LocalDate hireDate) {
+    public Employee(int employeeNumber, LocalDate dob, String firstName, String lastName, String gender, LocalDate hireDate, LocalDate fromDate, LocalDate toDate) {
         this.employeeNumber = employeeNumber;
         this.dob = dob;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
         this.hireDate = hireDate;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
     }
 
     public int getEmployeeNumber() {
@@ -88,6 +99,22 @@ public class Employee {
         this.hireDate = hireDate;
     }
 
+    public LocalDate getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(LocalDate fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    public LocalDate getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(LocalDate toDate) {
+        this.toDate = toDate;
+    }
+
     @Override
     public String toString() {
         return "{" +
@@ -96,7 +123,9 @@ public class Employee {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", gender='" + gender + '\'' +
-                ", hireDate=" + hireDate +
+                ", hireDate='" + hireDate + '\'' +
+                ", fromDate='" + fromDate + '\'' +
+                ", toDate=" + toDate +
                 '}';
     }
 }
