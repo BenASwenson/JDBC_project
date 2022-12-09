@@ -22,7 +22,10 @@ public class Employee {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate hireDate;
 
-    public Employee(int employeeNumber, String dob, String firstName, String lastName, String gender, String hireDate) {
+    public Employee(){
+
+    }
+    public Employee(int employeeNumber, LocalDate dob, String firstName, String lastName, String gender, LocalDate hireDate) {
         this.employeeNumber = employeeNumber;
         this.dob = dob;
         this.firstName = firstName;
