@@ -9,6 +9,12 @@ import java.io.IOException;
 
 public class JSONWriter implements Writer{
     private static String fileWithPath = "src/main/resources/";
+    List<Employee> employees;
+
+    public JSONWriter(List<Employee> employees, String file){
+        fileWithPath += file + ".json";
+        this.employees = employees;
+    }
 
     @Override
     public void writeTo(Employee employee, String file) {
