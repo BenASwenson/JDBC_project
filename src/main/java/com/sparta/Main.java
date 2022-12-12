@@ -8,12 +8,6 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args){
-
-//        Scanner in = new Scanner(System.in);
-//        System.out.println("choose the file name: ");
-//        String fileName = in.next();
-
-
         EmployeeDAO employeeDAO = EmployeeDAO.getInstance();
         int counter2 = 0;
         List<Employee> list2 = employeeDAO.findEmployeesByDeptAndDate("Development", LocalDate.of(1999,1, 1), LocalDate.of(2000,1,1));
