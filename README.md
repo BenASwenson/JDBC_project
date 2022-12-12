@@ -1,7 +1,5 @@
 # Week 4 Group Project
-___
 ## Overview
-___
 The project is split into 3 phases which must be completed sequentially. 
 We were given a database to read/write using JDBC (Java Database Connectivity).
 Manage database connections efficiently and reliable. Furthermore, methods were created to
@@ -9,9 +7,7 @@ serialise objects to `JSON` and `XML` and vice versa.
 
 Test Driven Development (TDD) must be utilised in the project 
 with `JUnit` testing as well as logging using `Log4j2`.
-___
 ## Database
-___
 The original data was created by Fusheng Wang and Carlo Zaniolo at Siemens Corporate Research. 
 
 Giuseppe Maxia made the relational schema and Patrick Crews exported the data in relational format.
@@ -19,9 +15,7 @@ Giuseppe Maxia made the relational schema and Patrick Crews exported the data in
 The database contains about 300,000 employee records with 2.8 million salary entries. The export data is 167 MB, which is not huge, but heavy enough to be non-trivial for testing.
 
 The data was generated, and as such there are inconsistencies and subtle problems. Rather than removing them, we decided to leave the contents untouched, and use these issues as data cleaning exercises.
-___
 ## General Requirements
-___ 
 - Must be run as Scrum projects
 - Must apply SOLID & OO principles
 - Must use the MVC pattern where there is a user interface
@@ -45,7 +39,6 @@ ___
 - Allow the user to choose the file name, using a `Scanner` to get the user input
 - The program should polymorphically write the data in the appropriate format depending on the file extension, using the [Factory Method](https://refactoring.guru/design-patterns/factory-method) design pattern
 ## Phase 3
-
 - Given a `.csv`, `.json` or `.xml` file containing new employees, add this to the database table
 - This should be done polymorphically, based on the file extension
 - Any corrupt or duplicated data should be added to a separate collection for further analysis - corrupt or duplicated values should be displayed to the user for review
