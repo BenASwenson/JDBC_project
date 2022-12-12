@@ -37,7 +37,6 @@ public class EmployeeDAO implements DAO<Employee> {
         return instance;
     }
 
-
     @Override
     public List<Employee> findAll() {
         List<Employee> list = new ArrayList<>();
@@ -106,7 +105,6 @@ public class EmployeeDAO implements DAO<Employee> {
     }
 
     public static LocalDate fromStringToLocalDate(String date) {
-
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         try {
             return LocalDate.parse(date, dateTimeFormatter);
