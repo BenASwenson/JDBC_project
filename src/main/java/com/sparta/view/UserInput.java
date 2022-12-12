@@ -22,6 +22,6 @@ public class UserInput {
             }
         }
         System.out.println("Thank you");
-        return input;
+        return input.toLowerCase();
     }
 }
