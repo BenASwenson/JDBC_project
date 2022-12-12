@@ -6,7 +6,7 @@ import com.sparta.entities.Employee;
 
 public class XMLConverter {
 
-    public String ObjectToXML(Employee employee) {
+    public static String objectToXml(Employee employee) {
         XmlMapper mapper = new XmlMapper();
         try {
             return mapper.writeValueAsString(employee);
@@ -15,7 +15,7 @@ public class XMLConverter {
         }
     }
 
-    public Employee XMLtoObject(String str) {
+    public static Employee XmlToObject(String str) {
         XmlMapper mapper = new XmlMapper();
         try {
             return mapper.readValue(str, Employee.class);

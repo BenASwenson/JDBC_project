@@ -7,6 +7,9 @@ import com.sparta.view.UserInput;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.*;
+
+import static com.sparta.view.UserInput.validateInput;
 
 public class Main {
     public static void main(String[] args){
