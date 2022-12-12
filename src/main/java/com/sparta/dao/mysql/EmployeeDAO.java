@@ -19,8 +19,6 @@ public class EmployeeDAO implements DAO<Employee> {
 
     private static Connection conn = null;
 
-//    private static PreparedStatement findAllPS = null;
-
     public static EmployeeDAO getInstance() {
         if (instance == null) {
             instance = new EmployeeDAO();
@@ -36,32 +34,28 @@ public class EmployeeDAO implements DAO<Employee> {
                 throw new RuntimeException(e);
             }
         }
-//        if (findAllPS == null) {
-//            try {
-//                findAllPS = conn.prepareStatement("SELECT * FROM employees");
-//            } catch (SQLException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
         return instance;
     }
 
 
-//    @Override
-//    public List<Employee> findAll() {
-//        List<Employee> list = new ArrayList<>();
-//        try {
-//            ResultSet rs = findAllPS.executeQuery();
-//            while (rs.next()) {
-//                list.add(new Employee(rs.getInt("emp_no"), fromStringToLocalDate(rs.getString("birth_date")),
-//                        rs.getString("first_name"), rs.getString("last_name"), rs.getString("gender"),
-//                        fromStringToLocalDate(rs.getString("hire_date"))));
-//            }
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//        return list;
-//    }
+    @Override
+    public List<Employee> findAll() {
+        List<Employee> list = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(
+                    "SELECT * FROM employees"
+            );
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                list.add(new Employee(rs.getInt("emp_no"), fromStringToLocalDate(rs.getString("birth_date")),
+                        rs.getString("first_name"), rs.getString("last_name"), rs.getString("gender"),
+                        fromStringToLocalDate(rs.getString("hire_date"))));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
+    }
 
     public List<Employee> findEmployeesByDeptAndDate(String dept_name, LocalDate from_date, LocalDate to_date) {
         List<Employee> list = new ArrayList<>();
@@ -96,8 +90,7 @@ public class EmployeeDAO implements DAO<Employee> {
             while (rs.next()) {
                 list.add(new Employee(rs.getInt("emp_no"), fromStringToLocalDate(rs.getString("birth_date")),
                         rs.getString("first_name"), rs.getString("last_name"), rs.getString("gender"),
-                        fromStringToLocalDate(rs.getString("hire_date")), fromStringToLocalDate(rs.getString("from_date")),
-                        fromStringToLocalDate(rs.getString("to_date"))));
+                        fromStringToLocalDate(rs.getString("hire_date"))));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
